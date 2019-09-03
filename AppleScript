@@ -1,0 +1,258 @@
+
+-- bit.ly/鱫鰰macOS下載助手 
+-- http://GitHub.com/VirgoEros/macOSDownloadHelper/blob/master/AppleScript 
+
+---------------------------∞ macOS下載 ∞----------------------------ON. 
+global SelectDownloadVersion, Sierra_HighSierra, Sierra, HighSierra, ElCapitan_Yosemite_Mavericks, El_Capitan, Yosemite, Mavericks, OpenScript, errmsg, errnbr
+global Mavericks, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
+global Yosemite, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
+global El_Capitan, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
+global Sierra, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
+global HighSierra, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
+global OpenScript, OpenAppScript, TerminalNotifier, errmsg, errnbr
+
+on run
+	try
+		tell application "Finder"
+			set {button returned:SelectDownloadVersion} to ¬
+				display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
+					{"Sierra & HighSierra", "El Capitan & Yosemite & Mavericks", "開啟腳本"} with title ¬
+					{"鱫鰰macOS下載助手"}
+			
+			if SelectDownloadVersion is "Sierra & HighSierra" then
+				set {button returned:Sierra_HighSierra} to ¬
+					display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
+						{"Sierra", "HighSierra"} with title ¬
+						{"鱫鰰macOS下載助手"}
+				if Sierra_HighSierra is "Sierra" then run script Sierra
+				if Sierra_HighSierra is "HighSierra" then run script HighSierra
+			end if
+			
+			if SelectDownloadVersion is "El Capitan & Yosemite & Mavericks" then
+				set {button returned:ElCapitan_Yosemite_Mavericks} to ¬
+					display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
+						{"El Capitan", "Yosemite", "Mavericks"} with title ¬
+						{"鱫鰰macOS下載助手"}
+				if ElCapitan_Yosemite_Mavericks is "El Capitan" then run script El_Capitan
+				if ElCapitan_Yosemite_Mavericks is "Yosemite" then run script Yosemite
+				if ElCapitan_Yosemite_Mavericks is "Mavericks" then run script Mavericks
+			end if
+			
+			if SelectDownloadVersion is "開啟腳本" then run script OpenScript
+		end tell
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end run
+------------------------ 下載 Mavericks ------------------------ON. 
+script Mavericks
+	try
+		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
+		set mas_path to quoted form of mas_path
+		
+		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
+		set TerminalNotifier to quoted form of TerminalNotifier
+		do shell script (TerminalNotifier & " -title 下載中唷💋")
+		
+		do shell script (mas_path & " install 675248567 ")
+		
+		delay 1
+		set isDone to false
+		set itemPath to ("mas")
+		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+		repeat while isDone is false
+			try
+				do shell script itemProgress
+				if the result contains itemPath then
+					delay 1
+				else
+					set isDone to true
+				end if
+			on error
+				set isDone to true
+			end try
+		end repeat
+		if isDone is true then
+			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
+			do shell script ("open " & "/Applications")
+			continue quit
+		end if
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+------------------------ 下載 Yosemite ------------------------ON. 
+script Yosemite
+	try
+		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
+		set mas_path to quoted form of mas_path
+		
+		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
+		set TerminalNotifier to quoted form of TerminalNotifier
+		do shell script (TerminalNotifier & " -title 下載中唷💋")
+		
+		do shell script (mas_path & " install 915041082 ")
+		
+		delay 1
+		set isDone to false
+		set itemPath to ("mas")
+		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+		repeat while isDone is false
+			try
+				do shell script itemProgress
+				if the result contains itemPath then
+					delay 1
+				else
+					set isDone to true
+				end if
+			on error
+				set isDone to true
+			end try
+		end repeat
+		if isDone is true then
+			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
+			do shell script ("open " & "/Applications")
+			continue quit
+		end if
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+------------------------ 下載 El_Capitan ------------------------ON. 
+script El_Capitan
+	try
+		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
+		set mas_path to quoted form of mas_path
+		
+		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
+		set TerminalNotifier to quoted form of TerminalNotifier
+		do shell script (TerminalNotifier & " -title 下載中唷💋")
+		
+		do shell script (mas_path & " install 1018109117 ")
+		
+		delay 1
+		set isDone to false
+		set itemPath to ("mas")
+		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+		repeat while isDone is false
+			try
+				do shell script itemProgress
+				if the result contains itemPath then
+					delay 1
+				else
+					set isDone to true
+				end if
+			on error
+				set isDone to true
+			end try
+		end repeat
+		if isDone is true then
+			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
+			do shell script ("open " & "/Applications")
+			continue quit
+		end if
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+------------------------ 下載 Sierra ------------------------ON. 
+script Sierra
+	try
+		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
+		set mas_path to quoted form of mas_path
+		
+		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
+		set TerminalNotifier to quoted form of TerminalNotifier
+		do shell script (TerminalNotifier & " -title 下載中唷💋")
+		
+		do shell script (mas_path & " install 1127487414 ")
+		
+		delay 1
+		set isDone to false
+		set itemPath to ("mas")
+		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+		repeat while isDone is false
+			try
+				do shell script itemProgress
+				if the result contains itemPath then
+					delay 1
+				else
+					set isDone to true
+				end if
+			on error
+				set isDone to true
+			end try
+		end repeat
+		if isDone is true then
+			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
+			do shell script ("open " & "/Applications")
+			continue quit
+		end if
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+------------------------ 下載 High Sierra ------------------------ON. 
+script HighSierra
+	try
+		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
+		set mas_path to quoted form of mas_path
+		
+		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
+		set TerminalNotifier to quoted form of TerminalNotifier
+		do shell script (TerminalNotifier & " -title 下載中唷💋")
+		
+		do shell script (mas_path & " install 1246284741 ")
+		
+		delay 1
+		set isDone to false
+		set itemPath to ("mas")
+		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+		repeat while isDone is false
+			try
+				do shell script itemProgress
+				if the result contains itemPath then
+					delay 1
+				else
+					set isDone to true
+				end if
+			on error
+				set isDone to true
+			end try
+		end repeat
+		if isDone is true then
+			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
+			do shell script ("open " & "/Applications")
+			continue quit
+		end if
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+------------------------ 開啟腳本 ------------------------ON. 
+script OpenScript
+	try
+		tell application "Finder"
+			set OpenAppScript to POSIX path of (path to me as text) & ("Contents/Resources/Scripts/main.scpt")
+			set OpenAppScript to quoted form of OpenAppScript
+			do shell script ("open " & OpenAppScript)
+			set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
+			set TerminalNotifier to quoted form of TerminalNotifier
+			do shell script (TerminalNotifier & " -title 腳本已開啟鰳唷💋")
+		end tell
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+---------------------------∞ macOS下載 ∞----------------------------END. 
+
+
+-- 
