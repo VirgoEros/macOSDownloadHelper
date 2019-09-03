@@ -1,14 +1,18 @@
+(* 
+bit.ly/鱫鰰macOS下載助手 {HighSierra, Sierra, ElCapitan, Yosemite, Mavericks} 
+GitHub.com/VirgoEros/macOSDownloadHelper/blob/master/AppleScript 
 
--- bit.ly/鱫鰰macOS下載助手 
--- http://GitHub.com/VirgoEros/macOSDownloadHelper/blob/master/AppleScript 
-
----------------------------∞ macOS下載 ∞----------------------------ON. 
-global SelectDownloadVersion, Sierra_HighSierra, Sierra, HighSierra, ElCapitan_Yosemite_Mavericks, El_Capitan, Yosemite, Mavericks, OpenScript, errmsg, errnbr
-global Mavericks, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
-global Yosemite, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
-global El_Capitan, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
-global Sierra, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
-global HighSierra, mas_path, TerminalNotifier, isDone, itemPath, itemProgress, errmsg, errnbr
+bit.ly/下載_High_Sierra 
+bit.ly/下載_Sierra 
+bit.ly/下載_El_Capitan 
+*)
+---------------------------∞ 鱫鰰macOS下載助手 ∞----------------------------ON. 
+global SelectDownloadVersion, HighSierra_Sierra, HighSierra, Sierra, ElCapitan_Yosemite_Mavericks, El_Capitan, Yosemite, Mavericks, OpenScript, errmsg, errnbr
+global Mavericks, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
+global Yosemite, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
+global El_Capitan, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
+global Sierra, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
+global HighSierra, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
 global OpenScript, OpenAppScript, TerminalNotifier, errmsg, errnbr
 
 on run
@@ -16,18 +20,16 @@ on run
 		tell application "Finder"
 			set {button returned:SelectDownloadVersion} to ¬
 				display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
-					{"Sierra & HighSierra", "El Capitan & Yosemite & Mavericks", "開啟腳本"} with title ¬
+					{"HighSierra & Sierra", "El Capitan & Yosemite & Mavericks", "開啟腳本"} with title ¬
 					{"鱫鰰macOS下載助手"}
-			
-			if SelectDownloadVersion is "Sierra & HighSierra" then
-				set {button returned:Sierra_HighSierra} to ¬
+			if SelectDownloadVersion is "HighSierra & Sierra" then
+				set {button returned:HighSierra_Sierra} to ¬
 					display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
-						{"Sierra", "HighSierra"} with title ¬
+						{"HighSierra", "Sierra"} with title ¬
 						{"鱫鰰macOS下載助手"}
-				if Sierra_HighSierra is "Sierra" then run script Sierra
-				if Sierra_HighSierra is "HighSierra" then run script HighSierra
+				if HighSierra_Sierra is "HighSierra" then run script HighSierra
+				if HighSierra_Sierra is "Sierra" then run script Sierra
 			end if
-			
 			if SelectDownloadVersion is "El Capitan & Yosemite & Mavericks" then
 				set {button returned:ElCapitan_Yosemite_Mavericks} to ¬
 					display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
@@ -37,7 +39,6 @@ on run
 				if ElCapitan_Yosemite_Mavericks is "Yosemite" then run script Yosemite
 				if ElCapitan_Yosemite_Mavericks is "Mavericks" then run script Mavericks
 			end if
-			
 			if SelectDownloadVersion is "開啟腳本" then run script OpenScript
 		end tell
 	on error errmsg number errnbr
@@ -50,13 +51,11 @@ script Mavericks
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		
 		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
 		set TerminalNotifier to quoted form of TerminalNotifier
 		do shell script (TerminalNotifier & " -title 下載中唷💋")
-		
-		do shell script (mas_path & " install 675248567 ")
-		
+		set inBackground to " &> /dev/null &"
+		do shell script (mas_path & " install 675248567 " & inBackground)
 		delay 1
 		set isDone to false
 		set itemPath to ("mas")
@@ -88,13 +87,11 @@ script Yosemite
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		
 		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
 		set TerminalNotifier to quoted form of TerminalNotifier
 		do shell script (TerminalNotifier & " -title 下載中唷💋")
-		
-		do shell script (mas_path & " install 915041082 ")
-		
+		set inBackground to " &> /dev/null &"
+		do shell script (mas_path & " install 915041082 " & inBackground)
 		delay 1
 		set isDone to false
 		set itemPath to ("mas")
@@ -126,13 +123,11 @@ script El_Capitan
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		
 		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
 		set TerminalNotifier to quoted form of TerminalNotifier
 		do shell script (TerminalNotifier & " -title 下載中唷💋")
-		
-		do shell script (mas_path & " install 1018109117 ")
-		
+		set inBackground to " &> /dev/null &"
+		do shell script (mas_path & " install 1018109117 " & inBackground)
 		delay 1
 		set isDone to false
 		set itemPath to ("mas")
@@ -164,13 +159,11 @@ script Sierra
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		
 		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
 		set TerminalNotifier to quoted form of TerminalNotifier
 		do shell script (TerminalNotifier & " -title 下載中唷💋")
-		
-		do shell script (mas_path & " install 1127487414 ")
-		
+		set inBackground to " &> /dev/null &"
+		do shell script (mas_path & " install 1127487414 " & inBackground)
 		delay 1
 		set isDone to false
 		set itemPath to ("mas")
@@ -202,13 +195,11 @@ script HighSierra
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		
 		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
 		set TerminalNotifier to quoted form of TerminalNotifier
 		do shell script (TerminalNotifier & " -title 下載中唷💋")
-		
-		do shell script (mas_path & " install 1246284741 ")
-		
+		set inBackground to " &> /dev/null &"
+		do shell script (mas_path & " install 1246284741 " & inBackground)
 		delay 1
 		set isDone to false
 		set itemPath to ("mas")
@@ -252,7 +243,7 @@ script OpenScript
 		continue quit
 	end try
 end script
----------------------------∞ macOS下載 ∞----------------------------END. 
+---------------------------∞ 鱫鰰macOS下載助手 ∞----------------------------END. 
 
 
 -- 
