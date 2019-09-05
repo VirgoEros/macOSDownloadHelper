@@ -1,18 +1,19 @@
-(* 
-bit.ly/鱫鰰macOS下載助手 {HighSierra, Sierra, ElCapitan, Yosemite, Mavericks} 
+(*  
+bit.ly/鱫鰰macOS下載助手 
 GitHub.com/VirgoEros/macOSDownloadHelper/blob/master/AppleScript 
 
+倘鰙無法下載，鱞請沝女鰰鰒鯯下方網址貼鯲瀏灠器 App Store 下載 ¬ 
 bit.ly/下載_High_Sierra 
 bit.ly/下載_Sierra 
 bit.ly/下載_El_Capitan 
 *)
 ---------------------------∞ 鱫鰰macOS下載助手 ∞----------------------------ON. 
 global SelectDownloadVersion, HighSierra_Sierra, HighSierra, Sierra, ElCapitan_Yosemite_Mavericks, El_Capitan, Yosemite, Mavericks, OpenScript, errmsg, errnbr
-global Mavericks, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
-global Yosemite, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
-global El_Capitan, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
-global Sierra, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
-global HighSierra, mas_path, TerminalNotifier, inBackground, isDone, itemPath, itemProgress, errmsg, errnbr
+global Mavericks, mas_path, TerminalNotifier, inBackground
+global Yosemite, mas_path, TerminalNotifier, inBackground
+global El_Capitan, mas_path, TerminalNotifier, inBackground
+global Sierra, mas_path, TerminalNotifier, inBackground
+global HighSierra, mas_path, TerminalNotifier, inBackground
 global OpenScript, OpenAppScript, TerminalNotifier, errmsg, errnbr
 
 on run
@@ -51,34 +52,9 @@ script Mavericks
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
-		set TerminalNotifier to quoted form of TerminalNotifier
-		do shell script (TerminalNotifier & " -title 下載中唷💋")
 		set inBackground to " &> /dev/null &"
 		do shell script (mas_path & " install 675248567 " & inBackground)
 		delay 1
-		set isDone to false
-		set itemPath to ("mas")
-		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
-		repeat while isDone is false
-			try
-				do shell script itemProgress
-				if the result contains itemPath then
-					delay 1
-				else
-					set isDone to true
-				end if
-			on error
-				set isDone to true
-			end try
-		end repeat
-		if isDone is true then
-			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
-			do shell script ("open " & "/Applications")
-			continue quit
-		end if
-	on error errmsg number errnbr
-		if errnbr = -128 then continue quit
 		continue quit
 	end try
 end script
@@ -87,34 +63,9 @@ script Yosemite
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
-		set TerminalNotifier to quoted form of TerminalNotifier
-		do shell script (TerminalNotifier & " -title 下載中唷💋")
 		set inBackground to " &> /dev/null &"
 		do shell script (mas_path & " install 915041082 " & inBackground)
 		delay 1
-		set isDone to false
-		set itemPath to ("mas")
-		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
-		repeat while isDone is false
-			try
-				do shell script itemProgress
-				if the result contains itemPath then
-					delay 1
-				else
-					set isDone to true
-				end if
-			on error
-				set isDone to true
-			end try
-		end repeat
-		if isDone is true then
-			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
-			do shell script ("open " & "/Applications")
-			continue quit
-		end if
-	on error errmsg number errnbr
-		if errnbr = -128 then continue quit
 		continue quit
 	end try
 end script
@@ -123,34 +74,9 @@ script El_Capitan
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
-		set TerminalNotifier to quoted form of TerminalNotifier
-		do shell script (TerminalNotifier & " -title 下載中唷💋")
 		set inBackground to " &> /dev/null &"
 		do shell script (mas_path & " install 1018109117 " & inBackground)
 		delay 1
-		set isDone to false
-		set itemPath to ("mas")
-		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
-		repeat while isDone is false
-			try
-				do shell script itemProgress
-				if the result contains itemPath then
-					delay 1
-				else
-					set isDone to true
-				end if
-			on error
-				set isDone to true
-			end try
-		end repeat
-		if isDone is true then
-			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
-			do shell script ("open " & "/Applications")
-			continue quit
-		end if
-	on error errmsg number errnbr
-		if errnbr = -128 then continue quit
 		continue quit
 	end try
 end script
@@ -159,34 +85,9 @@ script Sierra
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
-		set TerminalNotifier to quoted form of TerminalNotifier
-		do shell script (TerminalNotifier & " -title 下載中唷💋")
 		set inBackground to " &> /dev/null &"
 		do shell script (mas_path & " install 1127487414 " & inBackground)
 		delay 1
-		set isDone to false
-		set itemPath to ("mas")
-		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
-		repeat while isDone is false
-			try
-				do shell script itemProgress
-				if the result contains itemPath then
-					delay 1
-				else
-					set isDone to true
-				end if
-			on error
-				set isDone to true
-			end try
-		end repeat
-		if isDone is true then
-			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
-			do shell script ("open " & "/Applications")
-			continue quit
-		end if
-	on error errmsg number errnbr
-		if errnbr = -128 then continue quit
 		continue quit
 	end try
 end script
@@ -195,34 +96,9 @@ script HighSierra
 	try
 		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
 		set mas_path to quoted form of mas_path
-		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
-		set TerminalNotifier to quoted form of TerminalNotifier
-		do shell script (TerminalNotifier & " -title 下載中唷💋")
 		set inBackground to " &> /dev/null &"
 		do shell script (mas_path & " install 1246284741 " & inBackground)
 		delay 1
-		set isDone to false
-		set itemPath to ("mas")
-		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
-		repeat while isDone is false
-			try
-				do shell script itemProgress
-				if the result contains itemPath then
-					delay 1
-				else
-					set isDone to true
-				end if
-			on error
-				set isDone to true
-			end try
-		end repeat
-		if isDone is true then
-			do shell script (TerminalNotifier & " -title 下載鯇成鰳唷💋")
-			do shell script ("open " & "/Applications")
-			continue quit
-		end if
-	on error errmsg number errnbr
-		if errnbr = -128 then continue quit
 		continue quit
 	end try
 end script
