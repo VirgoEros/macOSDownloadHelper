@@ -8,12 +8,11 @@ bit.ly/下載_Sierra
 bit.ly/下載_El_Capitan 
 *)
 ---------------------------∞ 鱫鰰macOS下載助手 ∞----------------------------ON. 
-global SelectDownloadVersion, HighSierra_Sierra, HighSierra, Sierra, ElCapitan_Yosemite_Mavericks, El_Capitan, Yosemite, Mavericks, OpenScript, errmsg, errnbr
-global Mavericks, mas_path, TerminalNotifier, inBackground
-global Yosemite, mas_path, TerminalNotifier, inBackground
-global El_Capitan, mas_path, TerminalNotifier, inBackground
-global Sierra, mas_path, TerminalNotifier, inBackground
-global HighSierra, mas_path, TerminalNotifier, inBackground
+global SelectDownloadVersion, Mojave, HighSierra_Sierra_ElCapitan, HighSierra, Sierra, El_Capitan, OpenScript, errmsg, errnbr
+global El_Capitan, El_Capitan_URL, errmsg, errnbr
+global Sierra, Sierra_URL, errmsg, errnbr
+global HighSierra, HighSierra_URL, errmsg, errnbr
+global Mojave, Mojave_URL, errmsg, errnbr
 global OpenScript, OpenAppScript, TerminalNotifier, errmsg, errnbr
 
 on run
@@ -21,24 +20,18 @@ on run
 		tell application "Finder"
 			set {button returned:SelectDownloadVersion} to ¬
 				display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
-					{"HighSierra & Sierra", "El Capitan & Yosemite & Mavericks", "開啟腳本"} with title ¬
+					{"Mojave", "HighSierra & Sierra & El Capitan", "開啟腳本"} with title ¬
 					{"鱫鰰macOS下載助手"}
-			if SelectDownloadVersion is "HighSierra & Sierra" then
-				set {button returned:HighSierra_Sierra} to ¬
+			
+			if SelectDownloadVersion is "Mojave" then run script Mojave
+			if SelectDownloadVersion is "HighSierra & Sierra & El Capitan" then
+				set {button returned:HighSierra_Sierra_ElCapitan} to ¬
 					display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
-						{"HighSierra", "Sierra"} with title ¬
+						{"HighSierra", "Sierra", "El Capitan"} with title ¬
 						{"鱫鰰macOS下載助手"}
-				if HighSierra_Sierra is "HighSierra" then run script HighSierra
-				if HighSierra_Sierra is "Sierra" then run script Sierra
-			end if
-			if SelectDownloadVersion is "El Capitan & Yosemite & Mavericks" then
-				set {button returned:ElCapitan_Yosemite_Mavericks} to ¬
-					display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
-						{"El Capitan", "Yosemite", "Mavericks"} with title ¬
-						{"鱫鰰macOS下載助手"}
-				if ElCapitan_Yosemite_Mavericks is "El Capitan" then run script El_Capitan
-				if ElCapitan_Yosemite_Mavericks is "Yosemite" then run script Yosemite
-				if ElCapitan_Yosemite_Mavericks is "Mavericks" then run script Mavericks
+				if HighSierra_Sierra_ElCapitan is "HighSierra" then run script HighSierra
+				if HighSierra_Sierra_ElCapitan is "Sierra" then run script Sierra
+				if HighSierra_Sierra_ElCapitan is "El Capitan" then run script El_Capitan
 			end if
 			if SelectDownloadVersion is "開啟腳本" then run script OpenScript
 		end tell
@@ -47,58 +40,59 @@ on run
 		continue quit
 	end try
 end run
------------------------- 下載 Mavericks ------------------------ON. 
-script Mavericks
-	try
-		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
-		set mas_path to quoted form of mas_path
-		set inBackground to " &> /dev/null &"
-		do shell script (mas_path & " install 675248567 " & inBackground)
-		delay 1
-		continue quit
-	end try
-end script
------------------------- 下載 Yosemite ------------------------ON. 
-script Yosemite
-	try
-		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
-		set mas_path to quoted form of mas_path
-		set inBackground to " &> /dev/null &"
-		do shell script (mas_path & " install 915041082 " & inBackground)
-		delay 1
-		continue quit
-	end try
-end script
 ------------------------ 下載 El_Capitan ------------------------ON. 
 script El_Capitan
 	try
-		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
-		set mas_path to quoted form of mas_path
-		set inBackground to " &> /dev/null &"
-		do shell script (mas_path & " install 1018109117 " & inBackground)
-		delay 1
+		set El_Capitan_URL to ("https://apps.apple.com/app/os-x-el-capitan/id1147835434?ls=1&mt=12")
+		tell application "Google Chrome"
+			activate
+			open location El_Capitan_URL
+		end tell
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
 		continue quit
 	end try
 end script
 ------------------------ 下載 Sierra ------------------------ON. 
 script Sierra
 	try
-		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
-		set mas_path to quoted form of mas_path
-		set inBackground to " &> /dev/null &"
-		do shell script (mas_path & " install 1127487414 " & inBackground)
-		delay 1
+		set Sierra_URL to ("https://apps.apple.com/tw/app/macos-sierra/id1127487414?ls=1&mt=12")
+		tell application "Google Chrome"
+			activate
+			open location Sierra_URL
+		end tell
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
 		continue quit
 	end try
 end script
 ------------------------ 下載 High Sierra ------------------------ON. 
 script HighSierra
 	try
-		set mas_path to POSIX path of (path to me as text) & ("Contents/MacOS/mas")
-		set mas_path to quoted form of mas_path
-		set inBackground to " &> /dev/null &"
-		do shell script (mas_path & " install 1246284741 " & inBackground)
-		delay 1
+		set HighSierra_URL to ("https://apps.apple.com/tw/app/macos-high-sierra/id1246284741?ls=1&mt=12")
+		tell application "Google Chrome"
+			activate
+			open location HighSierra_URL
+		end tell
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+------------------------ 下載 Mojave ------------------------ON. 
+script Mojave
+	try
+		set Mojave_URL to ("https://apps.apple.com/tw/app/macos-mojave/id1398502828?ls=1&mt=12")
+		tell application "Google Chrome"
+			activate
+			open location Mojave_URL
+		end tell
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
 		continue quit
 	end try
 end script
