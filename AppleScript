@@ -1,7 +1,6 @@
 (* 
 bit.ly/下載_鱫鰰macOS下載助手dmg 
 GitHub.com/VirgoEros/macOSDownloadHelper/blob/master/AppleScript 
-
 倘鰙無法下載，鱞請沝女鰰點擊或鰒鯯下方網址貼鯲瀏灠器 從App Store 下載 ¬ 
 bit.ly/下載_Catalina 10月上市 
 bit.ly/下載_Mojave 
@@ -10,8 +9,8 @@ bit.ly/下載_Sierra
 bit.ly/下載_El_Capitan 
 
 下載macOS ISO ¬ 
-bit.ly/下載_Install_macOS_High_Sierra_iso        -- APFS 
-bit.ly/下載_Install_macOS_Sierra_iso                -- HFS+ 
+bit.ly/下載_Install_macOS_High_Sierra_iso -- APFS 
+bit.ly/下載_Install_macOS_Sierra_iso -- HFS+ 
 *)
 ---------------------------∞ 鱫鰰macOS下載助手 ∞----------------------------ON. 
 global SelectDownloadVersion, SelectVersion, Catalina, Mojave, HighSierra_Sierra_ElCapitan, HighSierra, Sierra, El_Capitan, OpenScript, errmsg, errnbr
@@ -57,10 +56,7 @@ end run
 script Catalina
 	try
 		set Catalina_URL to ("https://www.apple.com/macos/catalina/")
-		tell application "Google Chrome"
-			activate
-			open location Catalina_URL
-		end tell
+		tell application "Google Chrome" to activate (open location Catalina_URL)
 		continue quit
 	on error errmsg number errnbr
 		if errnbr = -128 then continue quit
@@ -71,10 +67,7 @@ end script
 script Mojave
 	try
 		set Mojave_URL to ("https://apps.apple.com/tw/app/macos-mojave/id1398502828?ls=1&mt=12")
-		tell application "Google Chrome"
-			activate
-			open location Mojave_URL
-		end tell
+		tell application "Google Chrome" to activate (open location Mojave_URL)
 		continue quit
 	on error errmsg number errnbr
 		if errnbr = -128 then continue quit
@@ -85,10 +78,7 @@ end script
 script HighSierra
 	try
 		set HighSierra_URL to ("https://apps.apple.com/tw/app/macos-high-sierra/id1246284741?ls=1&mt=12")
-		tell application "Google Chrome"
-			activate
-			open location HighSierra_URL
-		end tell
+		tell application "Google Chrome" to activate (open location HighSierra_URL)
 		continue quit
 	on error errmsg number errnbr
 		if errnbr = -128 then continue quit
@@ -99,10 +89,7 @@ end script
 script Sierra
 	try
 		set Sierra_URL to ("https://apps.apple.com/tw/app/macos-sierra/id1127487414?ls=1&mt=12")
-		tell application "Google Chrome"
-			activate
-			open location Sierra_URL
-		end tell
+		tell application "Google Chrome" to activate (open location Sierra_URL)
 		continue quit
 	on error errmsg number errnbr
 		if errnbr = -128 then continue quit
@@ -113,10 +100,7 @@ end script
 script El_Capitan
 	try
 		set El_Capitan_URL to ("https://apps.apple.com/app/os-x-el-capitan/id1147835434?ls=1&mt=12")
-		tell application "Google Chrome"
-			activate
-			open location El_Capitan_URL
-		end tell
+		tell application "Google Chrome" to activate (open location El_Capitan_URL)
 		continue quit
 	on error errmsg number errnbr
 		if errnbr = -128 then continue quit
