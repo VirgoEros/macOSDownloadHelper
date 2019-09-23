@@ -1,7 +1,7 @@
 (* 
 bit.ly/下載_鱫鰰macOS下載助手dmg 
 GitHub.com/VirgoEros/macOSDownloadHelper/blob/master/AppleScript 
-倘鰙無法下載，鱞請沝女鰰點擊或鰒鯯下方網址貼鯲瀏灠器 從App Store 下載 ¬ 
+請沝女鰰點擊或鰒鯯下方網址貼鯲瀏灠器 從App Store 下載 ¬ 
 bit.ly/下載_Catalina 10月上市 
 bit.ly/下載_Mojave 
 bit.ly/下載_High_Sierra 
@@ -9,8 +9,8 @@ bit.ly/下載_Sierra
 bit.ly/下載_El_Capitan 
 
 下載macOS ISO ¬ 
-bit.ly/下載_Install_macOS_High_Sierra_iso -- APFS 
-bit.ly/下載_Install_macOS_Sierra_iso -- HFS+ 
+bit.ly/下載_Install_macOS_High_Sierra_iso    -- APFS 
+bit.ly/下載_Install_macOS_Sierra_iso            -- HFS+ 
 *)
 ---------------------------∞ 鱫鰰macOS下載助手 ∞----------------------------ON. 
 global SelectDownloadVersion, SelectVersion, Catalina, Mojave, HighSierra_Sierra_ElCapitan, HighSierra, Sierra, El_Capitan, OpenScript, errmsg, errnbr
@@ -111,11 +111,11 @@ end script
 script OpenScript
 	try
 		set OpenAppScript to POSIX path of (path to me as text) & ("Contents/Resources/Scripts/main.scpt")
-			set OpenAppScript to quoted form of OpenAppScript
-			do shell script ("open " & OpenAppScript)
-			set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
-			set TerminalNotifier to quoted form of TerminalNotifier
-			do shell script (TerminalNotifier & " -title 腳本已開啟鰳唷💋")
+		set OpenAppScript to quoted form of OpenAppScript
+		do shell script ("open " & OpenAppScript)
+		set TerminalNotifier to POSIX path of (path to me as text) & ("Contents/MacOS/terminal-notifier")
+		set TerminalNotifier to quoted form of TerminalNotifier
+		do shell script (TerminalNotifier & " -title 腳本已開啟鰳唷💋")
 		continue quit
 	on error errmsg number errnbr
 		if errnbr = -128 then continue quit
@@ -126,3 +126,4 @@ end script
 
 
 -- 
+ 
