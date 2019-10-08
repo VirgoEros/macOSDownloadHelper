@@ -2,7 +2,7 @@
 bit.ly/下載_鱫鰰macOS下載助手dmg 
 GitHub.com/VirgoEros/macOSDownloadHelper/blob/master/AppleScript 
 請沝女鰰點擊或鰒鯯下方網址貼鯲瀏灠器 從App Store 下載 ¬ 
-bit.ly/下載_Catalina 10月上市 
+bit.ly/下載_Catalina 
 bit.ly/下載_Mojave 
 bit.ly/下載_High_Sierra 
 bit.ly/下載_Sierra 
@@ -55,7 +55,7 @@ end run
 ------------------------ 下載 Catalina ------------------------ON. 
 script Catalina
 	try
-		set Catalina_URL to ("https://www.apple.com/macos/catalina/")
+		set Catalina_URL to ("https://apps.apple.com/tw/app/macos-catalina/id1466841314?l=zh&mt=12")
 		tell application "Google Chrome" to activate (open location Catalina_URL)
 		continue quit
 	on error errmsg number errnbr
@@ -126,4 +126,3 @@ end script
 
 
 -- 
- 
