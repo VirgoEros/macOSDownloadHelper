@@ -1,0 +1,29 @@
+(* 
+蘋果腳本 鱫鰰macOS下載助手 終端機版 
+下載至桌面 
+請鰎魞欲下載版本前之編號 1-6 
+當前可下載版本 ¬ 
+1   041-91758 10.13.6 17G66 2019-10-19 macOS High Sierra 
+2   041-88800 10.14.4 18E2034 2019-10-23 macOS Mojave 
+3   061-26589 10.14.6 18G103 2019-10-14 macOS Mojave 
+4   061-44387 10.15.3 19D76 2020-01-28 macOS Catalina 
+5   041-90855 10.13.5 17F66a 2019-10-23 Install macOS High Sierra Beta 
+6   061-26578 10.14.5 18F2059 2019-10-14 macOS Mojave 
+*)
+-----------∞ 鱫鰰macOS下載助手 ∞-----------ON. 
+on run
+	try
+		set GitHubApple to ¬
+			("cd ~/Desktop ;mkdir -p macOS下載 ;cd ~/Desktop/macOS下載 ;curl -O https://raw.githubusercontent.com/munki/macadmin-scripts/master/installinstallmacos.py ;sudo python installinstallmacos.py")
+		tell application "Terminal"
+			if not (exists window 1) then reopen
+			activate
+			set size of window 1 to {1550, 1200}
+			(do script GitHubApple in window 1)
+		end tell
+	end try
+end run
+-----------∞ 鱫鰰macOS下載助手 ∞----------END.  
+
+
+-- 
