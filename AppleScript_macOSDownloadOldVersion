@@ -1,0 +1,128 @@
+(* 
+蘋果腳本 鱫鰰 Sierra, El Capitan, Yosemite 下載助手 
+*)
+--------------∞ 鱫鰰 Sierra, El Capitan, Yosemite 下載助手 ∞--------------ON. 
+global SelectDownloadVersion, Sierra, El_Capitan, OpenScript, errmsg, errnbr
+global Sierra, isDone, itemPath, itemProgress, errmsg, errnbr
+global El_Capitan, isDone, itemPath, itemProgress, errmsg, errnbr
+global Yosemite, isDone, itemPath, itemProgress, errmsg, errnbr
+
+on run
+	try
+		tell application "Finder"
+			set {button returned:SelectDownloadVersion} to ¬
+				display dialog ("請嚫鱫的沝女鰰選擇欲下載之macOS版本唷💋") buttons ¬
+					{"Sierra", "El Capitan", "Yosemite"} with title ¬
+					{"鱫鰰 Sierra, El Capitan, Yosemite 下載助手"}
+			if SelectDownloadVersion is "Sierra" then run script Sierra
+			if SelectDownloadVersion is "El Capitan" then run script El_Capitan
+			if SelectDownloadVersion is "Yosemite" then run script Yosemite
+		end tell
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end run
+------------------------ 下載 Sierra ------------------------ON. 
+script Sierra
+	try
+		do shell script ("cd ~/Desktop ;mkdir -p macOS下載 ;cd ~/Desktop/macOS下載 ;mkdir -p Sierra ;cd ~/Desktop/macOS下載/Sierra ;curl -O http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg")
+		display notification with title ("macOS Sierra 下載中唷💋")
+		delay 1
+		set isDone to false
+		set itemPath to ("curl -O http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg ")
+		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+		repeat while isDone is false
+			try
+				do shell script itemProgress
+				if the result contains itemPath then
+					delay 1
+				else
+					set isDone to true
+				end if
+			on error
+				set isDone to true
+			end try
+		end repeat
+		if isDone is true then
+			do shell script ("cd ~/Desktop/macOS下載/Sierra ;mv InstallOS.dmg 'Install macOS Sierra.dmg'")
+			display notification with title ("macOS Sierra下載鯇成鰳唷💋")
+			do shell script ("open ~/Desktop/macOS下載/Sierra")
+			continue quit
+		end if
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+------------------------ 下載 El Capitan ------------------------ON. 
+script El_Capitan
+	try
+		do shell script ("cd ~/Desktop ;mkdir -p macOS下載 ;cd ~/Desktop/macOS下載 ;mkdir -p 'El Capitan' ;cd ~/Desktop/macOS下載/'El Capitan' ;curl -O http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg")
+		display notification with title ("macOS El Capitan 下載中唷💋")
+		delay 1
+		set isDone to false
+		set itemPath to ("curl -O http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg ")
+		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+		repeat while isDone is false
+			try
+				do shell script itemProgress
+				if the result contains itemPath then
+					delay 1
+				else
+					set isDone to true
+				end if
+			on error
+				set isDone to true
+			end try
+		end repeat
+		if isDone is true then
+			do shell script ("cd ~/Desktop/macOS下載/'El Capitan' ;mv InstallMacOSX.dmg 'Install macOS El Capitan.dmg'")
+			display notification with title ("macOS El Capitan 下載鯇成鰳唷💋")
+			do shell script ("open ~/Desktop/macOS下載/'El Capitan'")
+			continue quit
+		end if
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+------------------------ 下載 Yosemite ------------------------ON. 
+script Yosemite
+	try
+		do shell script ("cd ~/Desktop ;mkdir -p macOS下載 ;cd ~/Desktop/macOS下載 ;mkdir -p Yosemite ;cd ~/Desktop/macOS下載/Yosemite ;curl -O http://updates-http.cdn-apple.com/2019/cert/061-41343-20191023-02465f92-3ab5-4c92-bfe2-b725447a070d/InstallMacOSX.dmg")
+		display notification with title ("macOS Yosemite下載中唷💋")
+		delay 1
+		set isDone to false
+		set itemPath to ("curl -O http://updates-http.cdn-apple.com/2019/cert/061-41343-20191023-02465f92-3ab5-4c92-bfe2-b725447a070d/InstallMacOSX.dmg ")
+		set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+		repeat while isDone is false
+			try
+				do shell script itemProgress
+				if the result contains itemPath then
+					delay 1
+				else
+					set isDone to true
+				end if
+			on error
+				set isDone to true
+			end try
+		end repeat
+		if isDone is true then
+			do shell script ("cd ~/Desktop/macOS下載/Yosemite ;mv InstallMacOSX.dmg 'Install macOS Yosemite.dmg'")
+			display notification with title ("macOS Yosemite 下載鯇成鰳唷💋")
+			do shell script ("open ~/Desktop/macOS下載/Yosemite")
+			continue quit
+		end if
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+--------------∞ 鱫鰰 Sierra, El Capitan, Yosemite 下載助手 ∞--------------END. 
+
+
+-- 
