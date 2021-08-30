@@ -1,0 +1,43 @@
+(*
+蘋果腳本 鱫鰰macOS下載助手 終端機版
+請鰎魞欲下載版本前之編號 1-18
+當前可下載版本 ¬
+# ProductID Version Build Post Date Title
+1 001-15219 10.15.5 19F2200 2020-06-15 macOS Catalina
+2 001-68446 10.15.7 19H15 2020-11-11 macOS Catalina
+3 071-00696 11.4 20F71 2021-06-02 macOS Big Sur
+4 071-32414 11.3.1 20E241 2021-05-03 macOS Big Sur
+5 001-04366 10.15.4 19E2269 2020-05-04 macOS Catalina
+6 001-36801 10.15.6 19G2021 2020-08-12 macOS Catalina
+7 061-86291 10.15.3 19D2064 2020-03-23 macOS Catalina
+8 041-91758 10.13.6 17G66 2019-10-19 macOS High Sierra
+9 041-88800 10.14.4 18E2034 2019-10-23 macOS Mojave
+10 061-26589 10.14.6 18G103 2019-10-14 macOS Mojave
+11 001-51042 10.15.7 19H2 2020-09-24 macOS Catalina
+12 071-71342 11.5 20G71 2021-07-21 macOS Big Sur
+13 071-72781 11.5.1 20G80 2021-07-26 macOS Big Sur
+14 001-57224 10.15.7 19H4 2020-10-27 macOS Catalina
+15 041-90855 10.13.5 17F66a 2019-10-23 Install macOS High Sierra Beta
+16 061-26578 10.14.5 18F2059 2019-10-14 macOS Mojave
+17 071-78704 11.5.2 20G95 2021-08-18 macOS Big Sur
+18 001-36735 10.15.6 19G2006 2020-08-06 macOS Catalina
+*)
+-----------∞ 鱫鰰macOS下載助手 ∞-----------ON.
+on run
+	try
+		do shell script ("open ~")
+		set GitHubApple to ¬
+			("curl -O https://raw.githubusercontent.com/munki/" & ¬
+				"macadmin-scripts/master/installinstallmacos.py;
+sudo python installinstallmacos.py;")
+		tell application "Terminal"
+			if not (exists window 1) then reopen
+			activate
+			set size of window 1 to {1200, 1200}
+			(do script GitHubApple in window 1)
+		end tell
+	end try
+end run
+-----------∞ 鱫鰰macOS下載助手 ∞----------END. 
+
+--
